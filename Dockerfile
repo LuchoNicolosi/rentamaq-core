@@ -1,9 +1,7 @@
 FROM openjdk:20-jdk
 
-ARG JAR_FILE=target/rentamaq-0.0.1-SNAPSHOT.jar
+COPY /target/rentamaq-0.0.1-SNAPSHOT.jar .
 
-COPY ${JAR_FILE} app.jar
-
-ENTRYPOINT ["java", "-jar","app.jar"]
+ENTRYPOINT ["java", "-jar","rentamaq-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 8080
