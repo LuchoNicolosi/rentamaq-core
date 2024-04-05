@@ -1,8 +1,6 @@
-FROM ubuntu:latest
-RUN apt-get update
-RUN apt-get install openjdk-20-jdk -y
+FROM maven:3.8.4 AS build
 COPY . .
-RUN ./mvnw spring-boot:run
+RUN  mvn package -DskipTests
 
 FROM openjdk:20-jdk-slim
 EXPOSE 8080
