@@ -4,7 +4,7 @@ RUN apt-get install openjdk-20-jdk -y
 COPY . .
 RUN ./mvnw spring-boot:run
 
-FROM openjdk:20
+FROM openjdk:20-jdk-slim
 EXPOSE 8080
 COPY --from=build /target/rentamaq-0.0.1-SNAPSHOT.jar .
 
